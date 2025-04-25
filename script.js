@@ -19,7 +19,14 @@ function addTask(){
 
 listContainer.addEventListener("click", function(e){
     if(e.target.tagName === "LI"){
-        e.target.classList.toggle("checked");
+    if(e.target.classList.contains("checked")) {
+        e.target.classList.remove("checked");
+            listContainer.appendChild(e.target);
+    } 
+    else {
+        e.target.classList.add("checked");
+            listContainer.prepend(e.target);
+        }
         saveData();
     }
     else if(e.target.tagName === "SPAN"){
